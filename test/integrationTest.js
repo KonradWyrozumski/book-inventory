@@ -1,5 +1,6 @@
 var request = require('supertest');
-var app = require('../app');
+var memoryRepository = require('../src/memoryRepository');
+var app = require('../src/app')(memoryRepository());
 
 describe('POST /stock', function() {
     it('should return posted data', function(done) {

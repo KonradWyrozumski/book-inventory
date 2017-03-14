@@ -19,7 +19,14 @@ function findAll() {
     });
 }
 
+function findByIsbn(isbn) {
+    return collection.then(function (collection) {
+        return collection.find({ "isbn": isbn }).limit(1).next();
+    });
+}
+
 module.exports = {
     stockUp: stockUp,
-    findAll: findAll
+    findAll: findAll,
+    findByIsbn: findByIsbn
 };
