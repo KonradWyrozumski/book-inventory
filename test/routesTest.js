@@ -2,7 +2,7 @@ var request = require('supertest');
 var assert = require('assert');
 
 describe('getCountByIsbn', function () {
-    it('for correct Isbn should return count', function (done) {
+    it('for correct Isbn should return count', async function () {
         var stockRepository = {
             findByIsbn: function (book) {
                 return Promise.resolve({ count: 20 })
@@ -12,10 +12,10 @@ describe('getCountByIsbn', function () {
         var response = {
             json: function (param) {
                 assert.equal(param.count, 20)
-                done();
+ 
             }
         };
-        router.getCountByIsbn({ params: { isbn: 1 } }, response).catch(done);
+        await router.getCountByIsbn({ params: { isbn: 1 } }, response);
     });
 });
 
