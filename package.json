@@ -5,7 +5,10 @@
   "main": "src/index.js",
   "scripts": {
     "test": "mocha",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "lint": "jshint --exclude=node_modules/** .",
+    "test:xunit": "npm run test -- --reporter xunit",
+    "watch": "nodemon src/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +18,8 @@
     "mongodb": "^2.2.24"
   },
   "devDependencies": {
+    "heroin-js": "^1.16.2",
+    "jshint": "^2.9.4",
     "mocha": "^3.2.0",
     "supertest": "^3.0.0"
   }

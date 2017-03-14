@@ -6,9 +6,9 @@ module.exports = function () {
             next(err);
         },
         serverError: function (err, req, res, next) {
-            console.error(err.stack)
+            console.error(err.stack);
             var status = err.status || 500;
             res.status(status).send('On no: ' + status);
         }
-    }
-}
+    };
+};
