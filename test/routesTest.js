@@ -15,7 +15,7 @@ describe('getCountByIsbn', function () {
                 done();
             }
         };
-        router.getCountByIsbn({ params: { isbn: 1 } }, response)
+        router.getCountByIsbn({ params: { isbn: 1 } }, response).catch(done);
     });
 });
 
@@ -31,6 +31,6 @@ describe('getCountByIsbn', function () {
             done();
         };
 
-        router.getCountByIsbn({ params: { isbn: 2 } }, null, next);
+        router.getCountByIsbn({ params: { isbn: 2 } }, null, next).catch(done);
     })
 });

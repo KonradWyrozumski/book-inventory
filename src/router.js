@@ -12,7 +12,7 @@ module.exports = function (stockRepository) {
     }
 
     function getCountByIsbn(req, res, next) {
-        stockRepository.findByIsbn(req.params.isbn)
+        return stockRepository.findByIsbn(req.params.isbn)
             .then(function (book) {
                 if (book == null) {
                     next();
