@@ -9,15 +9,13 @@ describe('getCountByIsbn', function () {
             }
         };
         var router = require('../src/router')(stockRepository);
-        var req = null;
-        var count = -1;
         var response = {
             json: function (param) {
                 assert.equal(param.count, 20)
                 done();
             }
         };
-        router.getCountByIsbn({ params: { isbn: 1 } }, response, null)
+        router.getCountByIsbn({ params: { isbn: 1 } }, response)
     });
 });
 
@@ -29,7 +27,6 @@ describe('getCountByIsbn', function () {
             }
         };
         var router = require('../src/router')(stockRepository);
-        var req = null;
         var next = function () {
             done();
         };
